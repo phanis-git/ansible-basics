@@ -4,4 +4,6 @@
   tasks:
   - name: "Ping test"
     ansible.builtin.ping:
-      data: "Hi Phani, This is Ansible"
+  - name: "Result"
+    ansible.builtin.debug:
+      msg: "Hi Phani, This is Ansible"
