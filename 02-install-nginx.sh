@@ -1,14 +1,14 @@
 ---
-- name: "Installing and starting nginx server"
+- name: "Install and run nginx"
   hosts: local
-  become: true
+  connection: local
   tasks:
-    - name: "Installing nginx"
+    - name: "Install nginx"
       ansible.builtin.package:
-        name: nginx
+        name: "nginx"
         state: present
-    - name: "Starting nginx"
+    - name: "Start and enable nginx"
       ansible.builtin.service:
-        name: nginx
+        name: "nginx"
         state: started
-        enabled: true
+        enable: true
