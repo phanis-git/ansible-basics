@@ -1,0 +1,11 @@
+- name: "My First Playbook"
+  hosts: local
+  connection: local
+  tasks:
+  - name: "Task-1"
+    ansible.builtin.debug:
+      msg: "Printing Task-1"
+  - name: "Task-2"
+    ansible.builtin.debug:
+      msg: "Printing Task-2"
+
