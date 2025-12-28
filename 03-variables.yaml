@@ -1,17 +1,55 @@
-- name: "Checking variables priority"
+- name: "Play level variables"
   hosts: local
   connection: local
   vars:
-    MY_VAR: "Play level variable"
+    MY_VAR1: "Value1"
+  tasks:
+    - name: "Play level variable printing"
+      ansible.builtin.debug:
+        msg: "Play level variable printing:  {{ MY_VAR1 }}"
+
+- name: "Task level variables"
+  hosts: local
+  connection: local
+  tasks:
+    - name: "Printing variable in Task level"
+      vars:
+        MY_VAR2: "Value2"
+      ansible.builtin.debug:
+        msg: "Printing task level variables:  {{ MY_VAR2 }}"
+
+- name: "File level variables"
+  hosts: local
+  connection: local
   vars_files: 
     - checking-variables.yaml 
   tasks:
-    - name: "Printing variable in Task"
-      vars:
-        MY_VAR: "Task level variable"
+    - name: "Printing file variable"
       ansible.builtin.debug:
-        msg: "Checking variable preference:  {{ MY_VAR }}"
-    - name: "Printing variable in a file"
+        msg: "Printing task level variables:  {{ MY_VAR3 }}"
+
+- name: "Secure variables or variables through prompting"
+  hosts: local
+  connection: local
+  vars_prompt:
+  - name: username
+    prompt: "Enter username"
+    private: false
+  - name: password
+    prompt: "Enter password"
+    private: true
+  tasks:
+    - name: "Printing the entered values"
       ansible.builtin.debug:
-        msg: "Checking variable preference:  {{ MY_VAR }}"
+        msg: "You entered username : {{ username }} and  password : {{ password }}" 
+
+- name: "Variables from inventory file"
+  hosts: local
+  connection: local
+  tasks:
+    - name: "Printing variables from inventory file"
+      ansible.builtin.debug:
+        msg: "{{ MY_VAR4 }}"
+
+
       
