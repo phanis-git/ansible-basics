@@ -1,1 +1,2 @@
-MY_VAR="Placed variables in seperate file"
+MY_VAR: "Variable from vars_file"
+
