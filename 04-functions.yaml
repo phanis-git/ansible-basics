@@ -1,0 +1,10 @@
+- name: "Example for functions "
+  hosts: local
+  connectiion: local
+  become: yes
+  tasks: 
+  - name: "Read the file and assign the content in the file as value for a variable"
+    ansible.builtin.set_fact:
+      student_data: "{{ lookup('file', 'sample-student.yaml' ) | from_yaml }}"
+    ansible.builtin.debug:
+      msg: "{{ student_data }}"

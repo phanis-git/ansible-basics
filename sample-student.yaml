@@ -1,0 +1,26 @@
+student:
+  id: 101
+  name: "Phani Kumar"
+  age: 24
+  course: "DevOps"
+  email: "phani.kumar@example.com"
+  active: true
+
+  subjects:
+    - Linux
+    - AWS
+    - Docker
+    - Kubernetes
+    - Ansible
+
+  address:
+    city: "Hyderabad"
+    state: "Telangana"
+    country: "India"
+
+  marks:
+    Linux: 85
+    AWS: 88
+    Docker: 90
+    Kubernetes: 87
+    Ansible: 89
