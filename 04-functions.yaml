@@ -1,6 +1,6 @@
 - name: "Example for functions"
   hosts: local
-  connectiion: local
+  connection: local
   become: yes
   tasks: 
   - name: "Read the file and assign the content in the file as value for a variable"
