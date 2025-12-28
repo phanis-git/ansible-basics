@@ -9,3 +9,8 @@
   - name: "Converting yaml to json"
     ansible.builtin.debug:
       msg: "{{ student_data | to_nice_json }}"
+  - name: "Copying the student data in a file"
+    ansible.builtin.copy:
+        content: "{{ student_data }}"
+        dest: "./output_data.json"
+        mode: '0644'
