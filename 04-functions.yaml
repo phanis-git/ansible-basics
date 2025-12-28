@@ -1,4 +1,4 @@
-- name: "Example for functions "
+- name: "Example for functions"
   hosts: local
   connectiion: local
   become: yes
@@ -8,3 +8,6 @@
       student_data: "{{ lookup('file', 'sample-student.yaml' ) | from_yaml }}"
     ansible.builtin.debug:
       msg: "{{ student_data }}"
+  - name: "Converting yaml to json"
+    ansible.builtin.debug:
+      msg: "{{ student_data | to_nice_json }}"
