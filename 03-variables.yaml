@@ -1,0 +1,17 @@
+- name: "Checking variables priority"
+  hosts: local
+  connection: local
+  vars:
+    MY_VAR: "Play level variable"
+  vars_files: 
+    - checking-variables.yaml 
+  tasks:
+    - name: "Printing variable in Task"
+      vars:
+        MY_VAR: "Task level variable"
+      ansible.builtin.debug:
+        msg: "Checking variable preference:  {{ MY_VAR }}"
+    - name: "Printing variable in a file"
+      ansible.builtin.debug:
+        msg: "Checking variable preference:  {{ MY_VAR }}"
+      
