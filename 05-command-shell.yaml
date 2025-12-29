@@ -1,0 +1,10 @@
+- name: "Checking Command and Shell modules"
+  hosts: local
+  connection: local
+  tasks:
+  - name: "Using Command modules"
+    ansible.builtin.command: ls -ltr
+    register: list_data
+  - name: "Using Shell modules"
+    ansible.builtin.shell: ls -ltr > /tmp/output.txt 
+    register: list_output_data
