@@ -1,0 +1,16 @@
+- name: "Checking ansible tags"
+  hosts: local
+  connection: local 
+  tasks: 
+  - name: "Task 1"
+    ansible.builtin.debug:
+      msg: "This is Task 1"
+    tags:
+    - task1
+  - name: "Task 2"
+    ansible.builtin.debug:
+      msg: "This is Task 2"
+    tags:
+    - task2
+
+# ansible-playbook -i inventory.ini tags.yaml --tags task1 
