@@ -1,0 +1,8 @@
+- name: "Checking ansible vault"
+  hosts: local
+  connection: local 
+  become: yes
+  tasks: 
+  - name: "Ansible vault passowrd printing"
+    ansible.builtin.debug:
+      msg: "This is your password {{ MY_PASSWORD }}"
