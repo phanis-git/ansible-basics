@@ -1,6 +1,6 @@
 - name: "Logs collection"
-  hosts: local
-  connection: local
+  hosts: dynamic_frontend
+  become: yes
   tasks:
   - name: "Install nginx"
     ansible.builtin.package:
@@ -11,3 +11,6 @@
       name: "nginx"
       state: started
       enabled: true
+
+# ansible-playbook -i inventory dynamic-inventory.yaml    ## this is the usual command we give but as we are not using static inventory
+# we use ansible-playbook -i frontend.aws_ec2.yaml -e ansible_user=ec2-user -e ansible_password=DevOps321 dynamic-inventory.yaml
