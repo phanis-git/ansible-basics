@@ -1,4 +1,4 @@
-- name: "Logs collection"
+- name: "Checking dynamic inventory"
   hosts: dynamic_frontend
   become: yes
   tasks:
